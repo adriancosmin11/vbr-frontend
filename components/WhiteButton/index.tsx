@@ -1,18 +1,26 @@
-import React from "react";
+import React, { ButtonHTMLAttributes } from "react";
 import styles from "../../styles/WhiteButton.module.scss";
-import Image from "next/image";
+import Link from "next/link";
 
 
-interface WhiteButtonProps {
+interface WhiteButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
     text: string,
+    to?: string
 }
 
 
-export const WhiteButton: React.FC<WhiteButtonProps> = ({ text }) => {
+export const WhiteButton: React.FC<WhiteButtonProps> = ({ text, to, ...props }) => {
+
+    if (to) {
+        <Link href={to} className={styles.button}>
+            {text}
+        </Link>
+    }
+
     return (
-        <div className={styles.button}>
-            <a href="/" >{text}</a>
-        </div>
+        <button className={styles.button} {...props}>
+            {text}
+        </button>
     );
 }
 
