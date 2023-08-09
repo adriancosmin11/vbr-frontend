@@ -1,0 +1,111 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    padding: 0rem;
+    margin-top: 15rem;
+
+    .row {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: auto;
+        justify-content: space-between;
+
+        @media screen and (max-width: 991px) {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        
+
+
+    }
+
+    .column {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 40%;
+        gap: 8rem;
+        padding: 1rem;
+
+        @media screen and (max-width: 991px) {
+            width: 100%;
+            align-items: center;
+            gap: 4rem;
+        }
+
+
+
+
+
+        .header {
+            color: var(--font-color, #FFF);
+            font-family: Helvetica;
+            font-size: 3.125rem;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 2.8875rem;
+            /* 92.4% */
+            letter-spacing: 0.0625rem;
+
+            @media screen and (max-width: 991px) {
+                text-align: center;
+                margin-bottom: 7rem;
+            }
+
+
+        }
+
+        .counter {
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 1rem;
+
+            @media screen and (max-width: 991px) {
+                text-align: center;
+                justify-content: center;
+            }
+
+
+
+            .number {
+                font-family: Helvetica;
+                font-size: 8.125rem;
+                font-style: normal;
+                font-weight: 300;
+                line-height: 6.25rem;
+                /* 76.923% */
+                background: var(--linear-primary, linear-gradient(90deg, #1AFB9B 0%, #00AA9F 100%));
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+
+            }
+
+            .description {
+                color: var(--font-color, #FFF);
+                text-align: start;
+                font-family: Helvetica;
+                font-size: 1.5rem;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 1.39375rem;
+                /* 92.917% */
+                padding: 1rem;
+
+                @media screen and (max-width: 991px) {
+                    text-align: center;
+                    justify-content: center;
+                }
+            }
+        }
+
+    }
+}

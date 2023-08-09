@@ -1,0 +1,90 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 3rem;
+
+    .row {
+        display: flex;
+        flex-direction: row;
+        padding: 2rem;
+        align-items: center;
+        justify-content: space-between;
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            max-width: 24.5625rem;
+            height: auto;
+            border-radius: 1.375rem;
+            border: 1px solid var(--stroke-color, #2E2E2E);
+            width: 24.5625rem;
+            height: 24.5625rem;
+            padding: 1rem;
+
+            .imageWrap {
+
+                height: 170px;
+                padding: 0.5rem;
+            }
+
+            .cardHeader {
+                color: var(--font-color, #FFF);
+                text-align: center;
+                font-family: Helvetica;
+                font-size: 1.5rem;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 1.39375rem;
+                /* 92.917% */
+                padding: 1rem;
+            }
+
+            .cardDescription {
+                color: var(--secondary-font-color, #8D8D8D);
+                text-align: center;
+                font-family: Helvetica;
+                font-size: 1rem;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 1.39375rem;
+                /* 139.375% */
+                padding: 1rem;
+                max-width: 18.3125rem;
+            }
+        }
+
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 1rem;
+
+            .header {
+                color: var(--font-color, #FFF);
+                font-family: Helvetica;
+                font-size: 3.125rem;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 2.8875rem;
+                /* 92.4% */
+                letter-spacing: 0.0625rem;
+            }
+
+            .secondHeader {
+                color: var(--secondary-font-color, #8D8D8D);
+                font-family: Helvetica;
+                font-size: 1.3125rem;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 1.70625rem;
+                /* 130% */
+                max-width: 50.625rem;
+            }
+        }
+    }
+}

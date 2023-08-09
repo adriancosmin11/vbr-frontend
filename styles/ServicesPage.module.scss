@@ -1,0 +1,94 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+
+
+
+    .container {
+        display: flex;
+        padding: 10rem;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+
+            .colorHeader {
+                text-align: center;
+                font-family: Helvetica;
+                font-size: 1.3125rem;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 1.70625rem;
+                /* 130% */
+                background: var(--linear-primary, linear-gradient(90deg, #1AFB9B 0%, #00AA9F 100%));
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            .secondHeader {
+                color: var(--font-color, #FFF);
+                text-align: center;
+                font-family: Helvetica;
+                font-size: 3.125rem;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 4.81875rem;
+                /* 154.2% */
+                letter-spacing: 0.0425rem;
+                padding: 1rem;
+            }
+
+            .description {
+                color: var(--secondary-font-color, #8D8D8D);
+                text-align: center;
+                font-family: Helvetica;
+                font-size: 1.3125rem;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 1.70625rem;
+                /* 130% */
+                max-width:29.8125rem ;
+                padding: 0 0 2rem 0;
+            }
+        }
+
+        .designImage{
+            width: 100%;
+            height: auto;
+            padding: 2rem 0 0 0;
+            
+
+        }
+
+
+        .textDivider {
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+            padding: 2rem;
+            margin-top: 5rem;
+            margin-bottom: 5rem;
+      
+            .dividerText {
+              color: var(--font-color, #FFF);
+              text-align: center;
+              font-family: Helvetica;
+              font-size: 0.875rem;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 1.39375rem;
+              /* 159.286% */
+            }
+          }
+    }
+}

@@ -1,0 +1,84 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+
+
+
+    .container {
+        display: flex;
+        padding: 15rem 10rem;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .backgroundImage{
+            position: absolute;
+            z-index: 1;
+            margin-top: 25rem;
+        }
+
+        
+
+        .head {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            padding: 2rem 0;
+
+            .row {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;
+                width: 100%;
+                padding: 1rem 0;
+
+
+                .header {
+
+                    color: #FFF;
+                    font-family: Helvetica;
+                    font-size: 3.125rem;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 4.81875rem;
+                    /* 154.2% */
+                    letter-spacing: 0.0425rem;
+                    text-align: start;
+
+                    .colorText {
+                        background: var(--linear-primary, linear-gradient(90deg, #1AFB9B 0%, #00AA9F 100%));
+                        background-clip: text;
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        font-family: Helvetica;
+                        font-size: 3.125rem;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 4.81875rem;
+                        letter-spacing: 0.0425rem;
+                    }
+                }
+
+                .description {
+                    color: var(--secondary-font-color, #8D8D8D);
+                    font-family: Helvetica;
+                    font-size: 1.3125rem;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 1.70625rem;
+                    /* 130% */
+                }
+
+
+
+            }
+        }
+    }
+
+    .container:nth-child(3){
+        padding: 0rem 10rem;
+
+    }
+}

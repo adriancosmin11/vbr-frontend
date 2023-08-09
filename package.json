@@ -6,8 +6,16 @@
     "start": "next start"
   },
   "dependencies": {
+    "axios": "^0.24.0",
+    "bootstrap": "^5.3.1",
     "next": "latest",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "sass": "^1.64.2"
+  },
+  "devDependencies": {
+    "@types/node": "20.4.5",
+    "@types/react": "18.2.18",
+    "typescript": "5.1.6"
   }
 }
