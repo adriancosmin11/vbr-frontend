@@ -1,25 +1,15 @@
 import React from 'react';
 import styles from '../../styles/AboutUsPage.module.scss';
 import Image from 'next/image';
-import { GrayDivider } from '../../components/GrayDivider';
 import { BlackButton } from '../../components/BlackButton';
 import { Team } from '../../components/Team';
 import axios from 'axios';
-import { StyleRegistry } from 'styled-jsx';
 import { OurCustomers } from '../../components/OurCustomers';
-
-
-
-
 
 export async function getServerSideProps() {
     const [teamMembersRes, partnersRes] = await Promise.all([
-
         axios.get("http://localhost/api/sectumsempra/team/"),
         axios.get("http://localhost/api/sectumsempra/partners"),
-
-
-
     ]);
     const [teamMembers, partners] = await Promise.all([
         teamMembersRes.data,

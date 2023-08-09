@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from '../../styles/BlogPage.module.scss';
 import Image from 'next/image';
-
 import axios from 'axios';
 import Link from 'next/link';
 import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
@@ -34,7 +33,13 @@ export const getServerSideProps: GetServerSideProps<{
     }
 }
 
-export default function BlogPage({ error, posts }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export function BlogCategory({ error, posts }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+    if (error) {
+        return (
+            <div>{error}</div>
+        )
+    }
+
     return (
         <div className={styles.main}>
             <div className={styles.container}>
@@ -99,9 +104,6 @@ export default function BlogPage({ error, posts }: InferGetServerSidePropsType<t
                     </div>
                 </div>
             </div>
-
-
         </div>
     )
 }
-

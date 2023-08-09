@@ -1,15 +1,13 @@
 import React from 'react';
 import styles from '../../styles/ContactFormPage.module.scss';
-import Image from 'next/image';
-import { WhiteButton } from '../../../components/WhiteButton';
-import {ContactForm} from '../../../components/ContactForm';
+import { ContactForm } from '../../../components/ContactForm';
 
+import {
+    QueryClient,
+    QueryClientProvider,
+} from '@tanstack/react-query'
 
-
-
-
-
-
+const queryClient = new QueryClient();
 
 export default function ContactFormPage() {
     return (
@@ -24,11 +22,11 @@ export default function ContactFormPage() {
 
                 </div>
                 <div className={styles.column}>
-                    <ContactForm />
+                    <QueryClientProvider client={queryClient}>
+                        <ContactForm />
+                    </QueryClientProvider>
                 </div>
             </div>
-
-
         </div>
     )
 }

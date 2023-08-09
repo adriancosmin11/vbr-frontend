@@ -7,22 +7,17 @@ import { Contact } from '../../components/Contact';
 
 
 
-
-
-
-
-
 export default function ContactPage() {
     return (
         <div className={styles.main}>
             <div className={styles.container}>
                 <div className={styles.header}>
                     <h1 className={styles.mainHeader}>How can we help you?</h1>
-                    <p className={styles.description}>Forem ipsum dolor sit amet, consectetur adipiscing<br/> elit. Nunc vulputate libero et velit interdum.</p>
+                    <p className={styles.description}>Forem ipsum dolor sit amet, consectetur adipiscing<br /> elit. Nunc vulputate libero et velit interdum.</p>
                 </div>
-                <Contact />
+                    <Contact />
                 <GrayDivider />
-               
+
             </div>
 
 

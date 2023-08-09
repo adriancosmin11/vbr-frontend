@@ -2,7 +2,13 @@ import React from "react";
 import styles from "../../styles/ProjectsCounter.module.scss"
 import { GrayDivider } from "../GrayDivider";
 
-export const ProjectsCounter = () => {
+export const ProjectsCounter = ({projects}: {
+    projects: {
+        web_p: number,
+        mobile_p: number,
+        blockchain_p: number
+    }
+}) => {
     return (
         <div className={styles.container}>
             <div className={styles.row}>
@@ -14,7 +20,7 @@ export const ProjectsCounter = () => {
 
                     </div>
                     <div className={styles.number}>
-                        150+
+                        {projects.web_p}
 
                     </div>
 
@@ -26,7 +32,7 @@ export const ProjectsCounter = () => {
 
                     </div>
                     <div className={styles.number}>
-                        50+
+                    {projects.mobile_p}
 
                     </div>
                 </div>
@@ -37,7 +43,7 @@ export const ProjectsCounter = () => {
 
                     </div>
                     <div className={styles.number}>
-                        10+
+                    {projects.blockchain_p}
 
                     </div>
                 </div>

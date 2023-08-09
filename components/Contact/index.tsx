@@ -1,10 +1,12 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import styles from "../../styles/Contact.module.scss"
 import Image from "next/image";
 import { BlackButton } from "../BlackButton";
 
 
 export const Contact = () => {
+
+
     return (
         <div className={styles.container}>
             <div className={styles.row}>
