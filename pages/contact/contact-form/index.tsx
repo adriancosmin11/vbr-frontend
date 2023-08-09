@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../../styles/ContactFormPage.module.scss';
+import styles from '../../../styles/ContactFormPage.module.scss';
 import Image from 'next/image';
 import { WhiteButton } from '../../../components/WhiteButton';
 import {ContactForm} from '../../../components/ContactForm';

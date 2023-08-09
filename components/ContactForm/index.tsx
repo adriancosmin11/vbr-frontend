@@ -12,20 +12,22 @@ export const ContactForm = () => {
             <div className={styles.header}>
                 <h1 className={styles.headerText}>Tell us how can we help you</h1>
             </div>
-            <div className={styles.input}>
+            <div className={styles.divider}></div>
+            <div className={styles.inputBox}>
                 <label htmlFor="name" className={styles.inputType}>Full name</label>
-                <input type="text" id="name" ></input>
+                <input type="text" id="name"  className={styles.input}></input>
+                
             </div>
-            <div className={styles.input}>
+            <div className={styles.inputBox}>
                 <label htmlFor="name" className={styles.inputType}>Email</label>
-                <input type="text" id="name" ></input>
+                <input type="text" id="name"  className={styles.input}></input>
             </div>
-            <div className={styles.input}>
+            <div className={styles.inputBox}>
                 <label htmlFor="name" className={styles.inputType}>Message</label>
-                <input type="text" id="name" ></input>
+                <input type="text" id="name"  className={styles.input}></input>
             </div>
             <div className={styles.row}>
-                <p className={styles.paragraph}></p>
+                <p className={styles.paragraph}>You can also email us at contact@vbrlabs.io</p>
                 <WhiteButton text="Send message"/>
             </div>
            </div>

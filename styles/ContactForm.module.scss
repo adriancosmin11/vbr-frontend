@@ -1,0 +1,102 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    
+
+
+    .card {
+
+        width: 100%;
+        height: auto;
+        border-radius: 1.6875rem;
+        border: 1px solid var(--stroke-color, #2E2E2E);
+        align-items: center;
+        justify-content: center;
+
+        .inputBox {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding: 2rem;
+            gap: 1rem;
+
+
+
+            .inputType {
+                color: var(--font-color, #FFF);
+
+                font-family: Helvetica;
+                font-size: 1.125rem;
+                font-style: normal;
+                font-weight: 300;
+                line-height: 1.125rem;
+                /* 100% */
+            }
+
+            .input {
+                border-radius: 0.3125rem;
+                border: 1px solid var(--stroke-color, #2E2E2E);
+                background-color: transparent;
+                padding: 1rem;
+                color: var(--secondary-font-color, #8D8D8D);
+
+                font-family: Helvetica;
+                font-size: 1rem;
+                font-style: normal;
+                font-weight: 300;
+                line-height: 1.125rem;
+                /* 112.5% */
+            }
+
+
+        }
+
+        .divider {
+            background: var(--stroke-color, #2E2E2E);
+            height: 1px;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            padding: 2rem;
+            width: 100%;
+
+
+            .headerText {
+                color: var(--font-color, #FFF);
+
+                font-family: Helvetica;
+                font-size: 1.125rem;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 1.125rem;
+                /* 100% */
+            }
+        }
+
+        .row {
+            display: flex;
+            flex-direction: row;
+            padding: 3rem 2rem 3rem 2rem;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            width: 100%;
+
+            .paragraph {
+                color: var(--secondary-font-color, #8D8D8D);
+                text-align: center;
+                font-family: Helvetica;
+                font-size: 1rem;
+                font-style: normal;
+                font-weight: 300;
+                line-height: 1.125rem;
+                /* 112.5% */
+            }
+        }
+    }
+}
