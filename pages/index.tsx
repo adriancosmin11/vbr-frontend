@@ -13,17 +13,17 @@ import { Testimonials } from '../components/Testimonials';
 
 export async function getServerSideProps() {
   const [homeContentRes, partnersRes, servicesRes, aboutRes, blockchainRes, technologiesRes, projectsRes, teamMembersRes, exchangeRes, subscribeRes] = await Promise.all([
-    axios.get("http://localhost/api/sectumsempra/home-content/"),
-    axios.get("http://localhost/api/sectumsempra/partners/"),
-    axios.get("http://localhost/api/sectumsempra/services/"),
-    axios.get("http://localhost/api/sectumsempra/about/"),
-    axios.get("http://localhost/api/sectumsempra/blockchain/"),
-    axios.get("http://localhost/api/sectumsempra/technologies/"),
+    axios.get("http://localhost:8000/api/sectumsempra/home-content/"),
+    axios.get("http://localhost:8000/api/sectumsempra/partners/"),
+    axios.get("http://localhost:8000/api/sectumsempra/services/"),
+    axios.get("http://localhost:8000/api/sectumsempra/about/"),
+    axios.get("http://localhost:8000/api/sectumsempra/blockchain/"),
+    axios.get("http://localhost:8000/api/sectumsempra/technologies/"),
 
-    axios.get("http://localhost/api/sectumsempra/team/members/"),
-    axios.get("http://localhost/api/sectumsempra/team/"),
-    axios.get("http://localhost/api/sectumsempra/exchange/"),
-    axios.get("http://localhost/api/sectumsempra/subscribe/"),
+    axios.get("http://localhost:8000/api/sectumsempra/team/members/"),
+    axios.get("http://localhost:8000/api/sectumsempra/team/"),
+    axios.get("http://localhost:8000/api/sectumsempra/exchange/"),
+    axios.get("http://localhost:8000/api/sectumsempra/subscribe/"),
 
   ]);
   const [homeContent, partners, services, about, blockchain, technologies, projects, teamMembers, exchange, subscribe] = await Promise.all([
@@ -91,8 +91,8 @@ export default function Home({
         <TextGroup mainHeader='Services' secondHeader='We help you to <br/> scale your business.' description='Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra,
  per inceptos himenaeos.' />
         <Services />
-        <GrayDivider />
-        <Testimonials />
+        {/* <GrayDivider /> */}
+        {/* <Testimonials /> */}
         <GrayDivider />
       </div>
     </div>

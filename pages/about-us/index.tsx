@@ -8,8 +8,8 @@ import { OurCustomers } from '../../components/OurCustomers';
 
 export async function getServerSideProps() {
     const [teamMembersRes, partnersRes] = await Promise.all([
-        axios.get("http://localhost/api/sectumsempra/team/"),
-        axios.get("http://localhost/api/sectumsempra/partners"),
+        axios.get("http://localhost:8000/api/sectumsempra/team/"),
+        axios.get("http://localhost:8000/api/sectumsempra/partners"),
     ]);
     const [teamMembers, partners] = await Promise.all([
         teamMembersRes.data,

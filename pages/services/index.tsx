@@ -56,11 +56,11 @@ interface Projects {
 
 export const getServerSideProps: GetServerSideProps<{
     services?: Service[],
-    projects?:Projects,
+    projects?: Projects,
     error?: string
 }> = async ({ }) => {
 
-    const res = await Promise.all([axios.get(`http://localhost/api/sectumsempra/services/`), axios.get(`http://localhost/api/sectumsempra/team/members/`)])
+    const res = await Promise.all([axios.get(`http://localhost:8000/api/sectumsempra/services/`), axios.get(`http://localhost:8000/api/sectumsempra/team/members/`)])
 
     if (res.some(result => result.status !== 200)) {
         return {
@@ -70,7 +70,7 @@ export const getServerSideProps: GetServerSideProps<{
         }
     }
 
-    const [servicesRes,projectsRes] = res
+    const [servicesRes, projectsRes] = res
 
     return {
         props: {
@@ -111,18 +111,18 @@ export default function ServicesPage({ error, services, projects }: InferGetServ
                     <p className={styles.dividerText}>Powering the world’s best companies.</p>
                 </div>
 
-                <ProjectsCounter projects={projects}/>
+                <ProjectsCounter projects={projects} />
                 {services.map(service => (
                     <React.Fragment key={service.id}>
                         <ServicesOffer title={service.service_name}
                             description={service.service_description1}
-                            firstCardImg="/pixelperfect.png"
-                            secondCardImg="/person-square-heart.png"
-                            thirdCardImg="/sparkles-fill.png"
-                            cardHeader="Pixel perfect."
-                            cardDescription="Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum."
-                            secondCardHeader="Continuous delivery, always ready."
-                            thirdCardHeader="Secured infrastructure."
+                            firstCardImg={service.service_image}
+                            secondCardImg={service.service_image2}
+                            thirdCardImg={service.service_image3}
+                            cardHeader={service.service_icon_name}
+                            cardDescription={service.service_content}
+                            secondCardHeader={service.service_icon_name2}
+                            thirdCardHeader={service.service_icon_name3}
                             firstImageWidth="176"
                             secondImageWidth="115"
                             thirdImageWidth="107"
