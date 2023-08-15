@@ -19,7 +19,7 @@ export const Contact = () => {
                         <p className={styles.description}>Yorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.</p>
                     </div>
                     <div className={styles.buttonWrap}>
-                        <BlackButton text="Ask for offer" />
+                        <BlackButton text="Ask for offer" to="/contact/contact-form"/>
                     </div>
                 </div>
                 <div className={styles.card}>
@@ -31,7 +31,7 @@ export const Contact = () => {
                         <p className={styles.description}>Yorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.</p>
                     </div>
                     <div className={styles.buttonWrap}>
-                        <BlackButton text="Contact us" />
+                        <BlackButton text="Contact us" to="/contact/contact-form" />
                     </div>
                 </div>
             </div>

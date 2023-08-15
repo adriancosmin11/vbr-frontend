@@ -6,12 +6,22 @@
     height: auto;
     padding: 15rem 10rem 2rem 10rem;
 
+    @media screen and (max-width: 1200px){
+        padding: 15rem 1rem 2rem 1rem;
+    }
+
     .row {
         display: flex;
         flex-direction: row;
         width: 100%;
         align-items: center;
         justify-content: space-between;
+
+        @media screen and (max-width: 1200px){
+            flex-direction: column !important;
+            justify-content: center !important;
+            gap: 3rem;
+        }
 
         .columnOne {
             display: flex;
@@ -20,6 +30,16 @@
             align-items: flex-start;
             gap: 1rem;
             width: 70%;
+
+            @media screen and (max-width: 1200px){
+                justify-content: center;
+                align-items: center;
+            }
+
+            @media screen and (max-width: 768px){
+                width: 100%;
+                
+            }
 
             .header {
                 color: var(--font-color, #FFF);
@@ -52,10 +72,24 @@
                 display: flex;
                 flex-direction: row;
 
+                @media screen and (max-width: 600px){
+                 justify-content: center;
+                 align-items: center;   
+                 
+                }
+
+                
+
                 .grid {
                     display: grid;
                     grid-template-columns: repeat(3, 1fr);
                     grid-template-rows: auto;
+
+                    @media screen and (max-width: 600px){
+                        grid-template-columns: repeat(2, 1fr);
+                        gap: 1rem;
+                        
+                    }
 
 
                     .gridItem {

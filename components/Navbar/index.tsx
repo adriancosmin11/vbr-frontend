@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "../../styles/Navbar.module.scss";
 import Image from "next/image";
+import Link from "next/link";
 
 export const Navbar = () => {
     return (
@@ -9,21 +10,24 @@ export const Navbar = () => {
                 <div className={styles.left}>
                     <div className={styles.logo}>
                         <Image src="/logo.png" alt="" width={25} height={32} />
-                        <a href="/">VBR Labs</a>
+                        <Link href="/">VBR Labs</Link>
                     </div>
                     
-                    <a href="/about-us">About Us</a>
-                    <a href="/services">Services</a>
-                    <a href="/">Portfolio</a>
-                    <a href="/">Products</a>
-                    <a href="/">Blog</a>
-                    <a href="/">Academy</a>
+                
+                    <div className={styles.links}>
+                    <Link href="/about-us">About Us</Link>
+                    <Link href="/services">Services</Link>
+                    {/* <a href="/">Portfolio</a> */}
+                    {/* <a href="/">Products</a> */}
+                    <Link href="/blog">Blog</Link>
+                    {/* <a href="/">Academy</a> */}
+                    </div>
 
                 </div>
                 <div className={styles.right}>
-                    <div className={styles.button}>
-                        <a href="/">Contact</a>
-                    </div>
+                    <Link href="contact" className={styles.button}>
+                        <span>Contact</span>
+                    </Link>
 
                 </div>
             </div>

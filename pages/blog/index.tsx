@@ -13,17 +13,17 @@ export const getServerSideProps: GetServerSideProps<{
         title: string
     }[],
     error?: string
-}> = async ({ params: { category } }) => {
+}> = async ({}) => {
 
-    const postsRes = await axios.get(`http://localhost/api/blog/${category}`)
+    //const postsRes = await axios.get(`http://localhost/api/blog`)
 
-    if (postsRes.status !== 200) {
+    //if (postsRes.status !== 200) {
         return {
             props: {
                 error: 'Could not fetch posts'
             }
         }
-    }
+    //}
 
     const posts = postsRes.data
 

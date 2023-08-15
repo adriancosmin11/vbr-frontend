@@ -13,10 +13,32 @@
         align-items: center;
         justify-content: center;
 
+        @media screen and (max-width: 600px){
+         padding: 15rem 2rem;             
+        }
+
         .backgroundImage{
             position: absolute;
             z-index: 1;
-            margin-top: 25rem;
+            //margin-top: 25rem;
+            pointer-events: none;
+            width: 100vw;
+            top: 0;
+
+            @media screen and (max-width: 1430px) {
+                height: 100vh;
+                width: auto;
+                bottom: 0;
+                margin: auto 0;
+            
+                img {
+                    max-width: none;
+                }
+            }
+
+            img {
+                object-fit: cover;
+            }
         }
 
         
@@ -79,6 +101,10 @@
 
     .container:nth-child(3){
         padding: 0rem 10rem;
+
+        @media screen and (max-width: 600px){
+         padding: 0rem 2rem;             
+        }
 
     }
 }

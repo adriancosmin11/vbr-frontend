@@ -7,6 +7,11 @@
     height: auto;
     padding: 6rem;
 
+    @media screen and (max-width: 600px){
+     padding: 6rem 2rem;               
+    }
+    
+
     .mainTitle {
         color: #FFF;
         text-align: center;
@@ -48,6 +53,10 @@
         /* 130% */
         max-width: 40rem;
         padding: 2rem;
+
+        @media screen and (max-width: 600px){
+         max-width: 100%;           
+        }
     }
 
     .button {

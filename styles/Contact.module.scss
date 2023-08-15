@@ -5,6 +5,10 @@
     height: auto;
     padding: 5rem;
 
+    @media screen and (max-width: 600px){
+        padding: 0;
+    }
+
    
 
     .row {
@@ -12,6 +16,13 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        @media screen and (max-width: 1375px){
+            gap: 2rem;
+        }
+
+        @media screen and (max-width: 1235px){
+           flex-direction: column;
+        }
 
         .card {
             display: flex;
