@@ -4,12 +4,34 @@
     width: 100%;
     padding: 3rem;
 
+    @media screen and (max-width: 900px){
+        padding: 0;
+    }
+
     .row {
         display: flex;
         flex-direction: row;
         padding: 2rem;
         align-items: center;
         justify-content: space-between;
+
+        @media screen and (max-width: 600px){
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;           
+         gap: 3rem;  
+        }
+
+        @media screen and (max-width: 1375px){
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        @media screen and (max-width: 1575px){
+            gap: 2rem;
+        }
 
         .card {
             display: flex;

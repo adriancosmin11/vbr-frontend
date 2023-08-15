@@ -37,7 +37,10 @@ export const ContactForm = () => {
         },
     });
 
-    const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    console.log({isIdle});
+    
+
+    const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
 
         setContactData(prevState => {
@@ -56,26 +59,31 @@ export const ContactForm = () => {
                 <div className={styles.header}>
                     <h1 className={styles.headerText}>Tell us how can we help you</h1>
                 </div>
-                <div className={styles.input}>
+                <div className={styles.divider}></div>
+
+                <div className={styles.inputBox}>
                     <label htmlFor="full_name" className={styles.inputType}>Full name</label>
-                    <input type="text" id="full_name" name="full_name" onChange={handleInputChange}></input>
+                    <input type="text" id="full_name" name="full_name" onChange={handleInputChange}className={styles.input} ></input>
                 </div>
-                <div className={styles.input}>
+                <div className={styles.inputBox}>
                     <label htmlFor="email" className={styles.inputType}>Email</label>
-                    <input type="text" id="email" name="email" onChange={handleInputChange}></input>
+                    <input type="text" id="email" name="email" onChange={handleInputChange} className={styles.input}></input>
                 </div>
-                <div className={styles.input}>
+                <div className={styles.inputBox}>
                     <label htmlFor="message" className={styles.inputType}>Message</label>
-                    <input type="text" id="message" name="message" onChange={handleInputChange}></input>
+                    <textarea rows={4}  id="message" name="message" onChange={handleInputChange} className={styles.input}></textarea>
                 </div>
                 <div className={styles.row}>
-                    <p className={styles.paragraph}></p>
-                    {isLoading ?? <p>Loading...</p>}
-                    {isError ?? <p>{JSON.stringify(error)}</p>}
-                    {isIdle ?? <WhiteButton text="Send message" onClick={handleSend} />}
-                    {isSuccess ?? <p>Your message has been sent</p>}
+                    <p className={styles.paragraph}>You can also email us at contact@vbrlabs.io</p>
+                    {isLoading && <p>Loading...</p>}
+                    {isError && <p>{JSON.stringify(error)}</p>}
+                    {isIdle && <WhiteButton text="Send message" onClick={handleSend} />}
+                    {isSuccess && <p>Your message has been sent</p>}
                 </div>
-            </div>
+
+           
+           </div>
+            
         </div>
     );
 }

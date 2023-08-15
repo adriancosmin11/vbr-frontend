@@ -10,7 +10,7 @@ export const Navbar = () => {
                 <div className={styles.left}>
                     <div className={styles.logo}>
                         <Image src="/logo.png" alt="" width={25} height={32} />
-                        <a href="/">VBR Labs</a>
+                        <Link href="/">VBR Labs</Link>
                     </div>
 
                     <Link href="/about-us">About Us</Link>

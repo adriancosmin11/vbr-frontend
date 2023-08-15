@@ -4,11 +4,17 @@
     width: 100%;
     height: auto;
 
+    @media screen and (max-width: 600px){
+      align-items: center;
+      justify-content: center ;               
+    }
+
     .row {
         display: flex;
         flex-direction: row;
         width: fit-content;
         padding: 3rem 0rem;
+        
 
 
         .button {

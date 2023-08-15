@@ -18,7 +18,7 @@ export const Service = ({ title, description, imgPath }) => {
                     </div>
                 </div>
                 <div className={styles.column}>
-                    <Image src="/arrow-right-gray.svg" alt="" width={33} height={36} />
+                    <Image src="/arrow-right-gray.svg" alt="" width={33} height={36} className={styles.hiddenArrow} />
                 </div>
 
             </div>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "../../styles/Hero.module.scss";
 import Image from "next/image";
+import Link from "next/link";
 
 export const Hero = () => {
     return (
@@ -10,7 +11,7 @@ export const Hero = () => {
             <p className={styles.description}>Forem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.</p>
             <div className={styles.button}>
               
-                    <a href="">Ask for offer</a>
+                    <Link href="/contact/contact-form">Ask for offer</Link>
                     <Image src="/arrow-right.svg" alt="" width={15} height={13} className={styles.arrow} />
                 
             </div>

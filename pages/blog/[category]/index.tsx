@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../../styles/BlogPage.module.scss';
+import styles from '../../../styles/BlogPage.module.scss';
 import Image from 'next/image';
 import axios from 'axios';
 import Link from 'next/link';
@@ -11,34 +11,37 @@ export const getServerSideProps: GetServerSideProps<{
     posts?: {
         title: string
     }[],
-    error?: string
+    error?: string,
+    category: string | string[]
 }> = async ({ params: { category } }) => {
 
-    const postsRes = await axios.get(`http://localhost/api/blog/${category}`)
+   // const postsRes = await axios.get(`http://localhost/api/blog/${category}`)
 
-    if (postsRes.status !== 200) {
+    //if (postsRes.status !== 200) {
         return {
             props: {
-                error: 'Could not fetch posts'
+                error: 'Could not fetch posts',
+                category
             }
         }
-    }
+    //}
 
     const posts = postsRes.data
 
     return {
         props: {
-            posts
+            posts,
+            category
         }
     }
 }
 
-export function BlogCategory({ error, posts }: InferGetServerSidePropsType<typeof getServerSideProps>) {
-    if (error) {
-        return (
-            <div>{error}</div>
-        )
-    }
+export default function BlogCategory({ error, posts, category }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+    //if (error) {
+    //    return (
+    //        <div>{error}</div>
+    //    )
+    //}
 
     return (
         <div className={styles.main}>
@@ -52,13 +55,13 @@ export function BlogCategory({ error, posts }: InferGetServerSidePropsType<typeo
                             <h2 className={styles.filterHeaderText}>Category</h2>
                         </div>
                         <div className={styles.filterWrap}>
-                            <Link href='/blog/news' className={styles.filterText}>News</Link>
-                            <Link href='/blog/blockchain' className={styles.filterText}>Blockchain</Link>
-                            <Link href='/blog/tech' className={styles.filterText}>Tech</Link>
-                            <Link href='/blog/industry' className={styles.filterText}>Industry</Link>
-                            <Link href='/blog/crypto' className={styles.filterText}>Crypto</Link>
-                            <Link href='/blog/it' className={styles.filterText}>IT</Link>
-                            <Link href='/blog/team' className={styles.filterText}>Team</Link>
+                            <Link href='/blog/news' className={`${styles.filterText}  ${category === 'news' ? styles.active : ''}`}>News</Link>
+                            <Link href='/blog/blockchain' className={`${styles.filterText}  ${category === 'blockchain' ? styles.active : ''}`}>Blockchain</Link>
+                            <Link href='/blog/tech' className={`${styles.filterText}  ${category === 'tech' ? styles.active : ''}`}>Tech</Link>
+                            <Link href='/blog/industry' className={`${styles.filterText}  ${category === 'industry' ? styles.active : ''}`}>Industry</Link>
+                            <Link href='/blog/crypto' className={`${styles.filterText}  ${category === 'crypto' ? styles.active : ''}`}>Crypto</Link>
+                            <Link href='/blog/it' className={`${styles.filterText}  ${category === 'it' ? styles.active : ''}`}>IT</Link>
+                            <Link href='/blog/team' className={`${styles.filterText}  ${category === 'team' ? styles.active : ''}`}>Team</Link>
                         </div>
                     </div>
                     <div className={styles.column}>

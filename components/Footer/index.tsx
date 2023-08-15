@@ -11,24 +11,24 @@ export const Footer = () => {
                 <div className={styles.columnOne}>
                     <h1 className={styles.header}>Let's chat</h1>
                     <h2 className={styles.secondHeader}>Sorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
-                    <BlackButton text="Contact" />
+                    <BlackButton to="/contact" text="Contact" />
                 </div>
                 <div className={styles.columnTwo}>
                     <div className={styles.row}>
                         <div className={styles.grid}>
                             <div className={styles.gridItem}>
                                 <h1 className={styles.header}>Content:</h1>
-                                <a href="/" className={styles.page}>Services</a>
-                                <a href="/" className={styles.page}>About Us</a>
-                                <a href="/" className={styles.page}>Blog</a>
-                                <a href="/" className={styles.page}>Academy</a>
+                                <a href="/services" className={styles.page}>Services</a>
+                                <a href="/about-us" className={styles.page}>About Us</a>
+                                <a href="/blog" className={styles.page}>Blog</a>
+                                {/* <a href="/academy" className={styles.page}>Academy</a> */}
                             </div>
                             <div className={styles.gridItem}>
                                 <h1 className={styles.header}>Follow us:</h1>
                                 <a href="/" className={styles.page}>Instagram</a>
                                 <a href="/" className={styles.page}>Twitter</a>
-                                <a href="/" className={styles.page}>Facebook</a>
-                                <a href="/" className={styles.page}>Linkedin</a>
+                                <a href="https://www.facebook.com/profile.php?id=100086960532645" className={styles.page}>Facebook</a>
+                                <a href="https://www.linkedin.com/company/vbrlabs/mycompany/" className={styles.page}>Linkedin</a>
                             </div>
                             <div className={styles.gridItem}>
                                 <h1 className={styles.header}>Resources:</h1>
