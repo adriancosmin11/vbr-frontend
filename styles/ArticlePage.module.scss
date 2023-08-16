@@ -41,12 +41,17 @@
             gap: 1rem;
             align-items: center;
             justify-content: center;
+            padding: 3rem;
+
+            .thumbnail {
+                border-radius: 1.5rem;
+                width: 100%;
+            }
 
             .content{
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-start;
-                padding: 3rem;
 
                 @media screen and (max-width: 800px){
                     padding: 0;

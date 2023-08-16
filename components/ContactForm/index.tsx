@@ -27,7 +27,7 @@ export const ContactForm = () => {
 
     const { isLoading, isError, isSuccess, mutate, error, isIdle } = useMutation({
         mutationFn: async (data: ContactData) => {
-            const res = await axios.post('http://localhost/api/sectumsempra/contact', data);
+            const res = await axios.post('/api/contact/', data);
 
             if (res.status !== 201) {
                 throw Error(res.data);
@@ -37,8 +37,6 @@ export const ContactForm = () => {
         },
     });
 
-    console.log({isIdle});
-    
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -63,7 +61,7 @@ export const ContactForm = () => {
 
                 <div className={styles.inputBox}>
                     <label htmlFor="full_name" className={styles.inputType}>Full name</label>
-                    <input type="text" id="full_name" name="full_name" onChange={handleInputChange}className={styles.input} ></input>
+                    <input type="text" id="full_name" name="full_name" onChange={handleInputChange} className={styles.input} ></input>
                 </div>
                 <div className={styles.inputBox}>
                     <label htmlFor="email" className={styles.inputType}>Email</label>
@@ -71,19 +69,19 @@ export const ContactForm = () => {
                 </div>
                 <div className={styles.inputBox}>
                     <label htmlFor="message" className={styles.inputType}>Message</label>
-                    <textarea rows={4}  id="message" name="message" onChange={handleInputChange} className={styles.input}></textarea>
+                    <textarea rows={4} id="message" name="message" onChange={handleInputChange} className={styles.input}></textarea>
                 </div>
                 <div className={styles.row}>
                     <p className={styles.paragraph}>You can also email us at contact@vbrlabs.io</p>
-                    {isLoading && <p>Loading...</p>}
-                    {isError && <p>{JSON.stringify(error)}</p>}
+                    {isLoading && <p className={styles.paragraph}>Loading...</p>}
+                    {isError && <p className={styles.paragraph}>Something went wrong</p>}
                     {isIdle && <WhiteButton text="Send message" onClick={handleSend} />}
-                    {isSuccess && <p>Your message has been sent</p>}
+                    {isSuccess && <p className={styles.paragraph}>Your message has been sent</p>}
                 </div>
 
-           
-           </div>
-            
+
+            </div>
+
         </div>
     );
 }

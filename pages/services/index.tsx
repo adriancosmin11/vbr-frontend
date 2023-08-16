@@ -99,7 +99,7 @@ export default function ServicesPage({ error, services, projects }: InferGetServ
                     <h1 className={styles.colorHeader}>Services</h1>
                     <h2 className={styles.secondHeader}>We help you to scale <br /> your business</h2>
                     <p className={styles.description}>Forem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum.</p>
-                    <WhiteButton text='Ask for offer' />
+                    <WhiteButton to="/contact/contact-form" text='Ask for offer' />
                 </div>
 
                 <div className={styles.designImage}>

@@ -23,7 +23,7 @@ export const Navbar = () => {
                 </div>
                 <div className={styles.right}>
                     <div className={styles.button}>
-                        <Link href="/">Contact</Link>
+                        <Link href="/contact">Contact</Link>
                     </div>
                 </div>
             </div>

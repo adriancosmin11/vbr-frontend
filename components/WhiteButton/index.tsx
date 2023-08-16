@@ -3,7 +3,7 @@ import styles from "../../styles/WhiteButton.module.scss";
 import Link from "next/link";
 
 
-interface WhiteButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
+interface WhiteButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     text: string,
     to?: string
 }
@@ -11,10 +11,10 @@ interface WhiteButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
 
 export const WhiteButton: React.FC<WhiteButtonProps> = ({ text, to, ...props }) => {
 
-    if (to) {
-        <Link href={to} className={styles.button}>
+    if (typeof to === 'string') {
+        return (<Link href={to} className={styles.button}>
             {text}
-        </Link>
+        </Link>)
     }
 
     return (

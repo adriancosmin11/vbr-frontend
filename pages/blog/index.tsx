@@ -14,7 +14,7 @@ export interface BlogPost {
     article_meta_description: string;
     article_image: string;
     article_category: ArticleCategory;
-    article_tag: any[];
+    article_tag: ArticleTag[];
     article_priority: boolean;
 }
 
@@ -25,43 +25,51 @@ export interface ArticleCategory {
     category_description: string;
     category_image: string;
 }
+export interface ArticleTag {
+    id: number;
+    tag_name: string;
+}
 
 
 
 export const getServerSideProps: GetServerSideProps<{
     posts?: BlogPost[],
+    categories?: ArticleTag[],
     error?: string,
-    latest?: BlogPost
-}> = async () => {
+    latest?: BlogPost | null
+}> = async ({ }) => {
 
-    const postsRes = await axios.get(`http://localhost:8000/api/academy/articles/`)
+    const [postsRes, categoryRes] = await Promise.allSettled([
+        axios.get(`http://localhost:8000/api/academy/articles`),
+        axios.get(`http://localhost:8000/api/academy/tags`),
+    ])
 
-    if (postsRes.status !== 200) {
+
+    if (postsRes.status !== 'fulfilled' || categoryRes.status !== 'fulfilled') {
         return {
             props: {
-                error: 'Could not fetch posts'
+                error: 'Could not fetch posts',
             }
         }
     }
 
-    console.log(postsRes.data);
+    const posts: BlogPost[] = postsRes.value.data;
 
+    const categories = categoryRes.value.data;
 
-    const posts = postsRes.data
 
     return {
         props: {
             posts,
-            latest: posts.find(post => post.article_priority)
+            categories,
+            latest: posts.find(post => post.article_priority) || posts[0] || null
         }
     }
 }
 
-export default function BlogPage({ error, posts, latest }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function BlogPage({ error, posts, latest, categories }: InferGetServerSidePropsType<typeof getServerSideProps>) {
 
-    const removeHTMLTags = (str: string) => {
-        return str.replace(/<[^>]*>?/gm, '');
-    }
+    console.log({ categories });
 
     return (
         <div className={styles.main}>
@@ -75,21 +83,17 @@ export default function BlogPage({ error, posts, latest }: InferGetServerSidePro
                             <h2 className={styles.filterHeaderText}>Category</h2>
                         </div>
                         <div className={styles.filterWrap}>
-                            <Link href='/blog/news' className={styles.filterText}>News</Link>
-                            <Link href='/blog/blockchain' className={styles.filterText}>Blockchain</Link>
-                            <Link href='/blog/tech' className={styles.filterText}>Tech</Link>
-                            <Link href='/blog/industry' className={styles.filterText}>Industry</Link>
-                            <Link href='/blog/crypto' className={styles.filterText}>Crypto</Link>
-                            <Link href='/blog/it' className={styles.filterText}>IT</Link>
-                            <Link href='/blog/team' className={styles.filterText}>Team</Link>
+                            {categories.map((_category) => (
+                                <Link href={`/blog/${_category.tag_name.toLowerCase()}`} className={`${styles.filterText}`} key={_category.id}>{_category.tag_name}</Link>
+                            ))}
                         </div>
                     </div>
                     <div className={styles.column}>
                         <div className={styles.row}>
 
-                            <div className={styles.bigCard}>
+                            <Link className={styles.bigCard} href={`/blog/${latest.article_tag[0].tag_name.toLowerCase()}/${latest.article_slug}`}>
                                 <Image src={latest.article_image} className={styles.image} alt='' width={1330} height={659} />
-                                <h1 className={styles.colorText}>{latest.article_category.category_name}</h1>
+                                <h1 className={styles.colorText}>{latest.article_tag.map(tag => tag.tag_name).join(' ')}</h1>
                                 <h2 className={styles.title}>{latest.article_title}</h2>
                                 <p className={styles.description}>{latest.article_meta_description}</p>
                                 {/* <div className={styles.rowCard}>
@@ -97,14 +101,14 @@ export default function BlogPage({ error, posts, latest }: InferGetServerSidePro
                                     <h3 className={styles.name}>Ciprian Sutu</h3>
                                     <h4 className={styles.date}>Jun 29, 2023</h4>
                                 </div> */}
-                            </div>
+                            </Link>
                         </div>
                         <div className={styles.row}>
                             <div className={styles.grid}>
                                 {posts.map((post) => (
-                                    <Link className={styles.blogCard} href={`/blog/${post.article_category.category_slug}/${post.article_slug}`}>
+                                    <Link className={styles.blogCard} href={`/blog/${post.article_tag[0]?.tag_name.toLowerCase() || 'tag'}/${post.article_slug}`} key={post.id}>
                                         <Image src={post.article_image} className={styles.image} alt='' width={573} height={445} />
-                                        <h1 className={styles.colorText}>{post.article_category.category_name}</h1>
+                                        <h1 className={styles.colorText}>{post.article_tag.map(tag => tag.tag_name).join(' ')}</h1>
                                         <h2 className={styles.title}>{post.article_title}</h2>
                                         <p className={styles.description}>{post.article_meta_description}</p>
                                         {/* <div className={styles.rowCard}>
@@ -114,28 +118,7 @@ export default function BlogPage({ error, posts, latest }: InferGetServerSidePro
                                      </div> */}
                                     </Link>
                                 ))}
-                                {/* <div className={styles.blogCard}>
-                                    <Image src="/postphoto.png" alt='' width={573} height={445} />
-                                    <h1 className={styles.colorText}>Team</h1>
-                                    <h2 className={styles.title}>How we build our products</h2>
-                                    <p className={styles.description}>Yorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-                                    <div className={styles.rowCard}>
-                                        <Image src="/cipri.png" alt='' width={40} height={40} />
-                                        <h3 className={styles.name}>Ciprian Sutu</h3>
-                                        <h4 className={styles.date}>Jun 29, 2023</h4>
-                                    </div>
-                                </div>
-                                <div className={styles.blogCard}>
-                                    <Image src="/postphoto2.png" alt='' width={550} height={275} />
-                                    <h1 className={styles.colorText}>Team</h1>
-                                    <h2 className={styles.title}>How we build our products</h2>
-                                    <p className={styles.description}>Yorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-                                    <div className={styles.rowCard}>
-                                        <Image src="/cipri.png" alt='' width={40} height={40} />
-                                        <h3 className={styles.name}>Ciprian Sutu</h3>
-                                        <h4 className={styles.date}>Jun 29, 2023</h4>
-                                    </div>
-                                </div> */}
+
                             </div>
                         </div>
                     </div>
